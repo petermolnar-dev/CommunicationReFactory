@@ -13,7 +13,11 @@
 		C7254D2C1D9A95FB00DC94FB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7254D2A1D9A95FB00DC94FB /* Main.storyboard */; };
 		C7254D2E1D9A95FB00DC94FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7254D2D1D9A95FB00DC94FB /* Assets.xcassets */; };
 		C7254D311D9A95FB00DC94FB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7254D2F1D9A95FB00DC94FB /* LaunchScreen.storyboard */; };
-		C7254D3C1D9A95FB00DC94FB /* CommunicationReFactoryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C7254D3B1D9A95FB00DC94FB /* CommunicationReFactoryTests.m */; };
+		C771C7031D9E8FC900C592D4 /* PMOPictureWithURL.m in Sources */ = {isa = PBXBuildFile; fileRef = C771C7021D9E8FC900C592D4 /* PMOPictureWithURL.m */; };
+		C771C7051D9EFFB900C592D4 /* PMOPIctureURLTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C771C7041D9EFFB900C592D4 /* PMOPIctureURLTests.m */; };
+		C7D2167E1DCB14FC00D794CB /* PMOPictureController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D2167D1DCB14FC00D794CB /* PMOPictureController.m */; };
+		C7D216811DCBA6BB00D794CB /* PMODownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = C7D216801DCBA6BB00D794CB /* PMODownloader.m */; };
+		C7F291301DD519750036A798 /* PMOPictureControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C7F2912F1DD519750036A798 /* PMOPictureControllerTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +42,16 @@
 		C7254D301D9A95FB00DC94FB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7254D321D9A95FB00DC94FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7254D371D9A95FB00DC94FB /* CommunicationReFactoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CommunicationReFactoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7254D3B1D9A95FB00DC94FB /* CommunicationReFactoryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommunicationReFactoryTests.m; sourceTree = "<group>"; };
 		C7254D3D1D9A95FB00DC94FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C771C7011D9E8FC900C592D4 /* PMOPictureWithURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMOPictureWithURL.h; sourceTree = "<group>"; };
+		C771C7021D9E8FC900C592D4 /* PMOPictureWithURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMOPictureWithURL.m; sourceTree = "<group>"; };
+		C771C7041D9EFFB900C592D4 /* PMOPIctureURLTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMOPIctureURLTests.m; sourceTree = "<group>"; };
+		C7D2167C1DCB14FC00D794CB /* PMOPictureController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMOPictureController.h; sourceTree = "<group>"; };
+		C7D2167D1DCB14FC00D794CB /* PMOPictureController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMOPictureController.m; sourceTree = "<group>"; };
+		C7D2167F1DCBA6BB00D794CB /* PMODownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMODownloader.h; sourceTree = "<group>"; };
+		C7D216801DCBA6BB00D794CB /* PMODownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMODownloader.m; sourceTree = "<group>"; };
+		C7F2912E1DD1B82E0036A798 /* PMODownloadNotifications.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMODownloadNotifications.h; sourceTree = "<group>"; };
+		C7F2912F1DD519750036A798 /* PMOPictureControllerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMOPictureControllerTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +94,13 @@
 			isa = PBXGroup;
 			children = (
 				C7254D241D9A95FB00DC94FB /* AppDelegate.h */,
+				C7D2167C1DCB14FC00D794CB /* PMOPictureController.h */,
+				C7D2167D1DCB14FC00D794CB /* PMOPictureController.m */,
+				C771C7011D9E8FC900C592D4 /* PMOPictureWithURL.h */,
+				C771C7021D9E8FC900C592D4 /* PMOPictureWithURL.m */,
+				C7F2912E1DD1B82E0036A798 /* PMODownloadNotifications.h */,
+				C7D2167F1DCBA6BB00D794CB /* PMODownloader.h */,
+				C7D216801DCBA6BB00D794CB /* PMODownloader.m */,
 				C7254D251D9A95FB00DC94FB /* AppDelegate.m */,
 				C7254D271D9A95FB00DC94FB /* ViewController.h */,
 				C7254D281D9A95FB00DC94FB /* ViewController.m */,
@@ -105,8 +124,9 @@
 		C7254D3A1D9A95FB00DC94FB /* CommunicationReFactoryTests */ = {
 			isa = PBXGroup;
 			children = (
-				C7254D3B1D9A95FB00DC94FB /* CommunicationReFactoryTests.m */,
+				C7F2912F1DD519750036A798 /* PMOPictureControllerTests.m */,
 				C7254D3D1D9A95FB00DC94FB /* Info.plist */,
+				C771C7041D9EFFB900C592D4 /* PMOPIctureURLTests.m */,
 			);
 			path = CommunicationReFactoryTests;
 			sourceTree = "<group>";
@@ -214,6 +234,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7254D291D9A95FB00DC94FB /* ViewController.m in Sources */,
+				C7D2167E1DCB14FC00D794CB /* PMOPictureController.m in Sources */,
+				C771C7031D9E8FC900C592D4 /* PMOPictureWithURL.m in Sources */,
+				C7D216811DCBA6BB00D794CB /* PMODownloader.m in Sources */,
 				C7254D261D9A95FB00DC94FB /* AppDelegate.m in Sources */,
 				C7254D231D9A95FB00DC94FB /* main.m in Sources */,
 			);
@@ -223,7 +246,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7254D3C1D9A95FB00DC94FB /* CommunicationReFactoryTests.m in Sources */,
+				C771C7051D9EFFB900C592D4 /* PMOPIctureURLTests.m in Sources */,
+				C7F291301DD519750036A798 /* PMOPictureControllerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +434,7 @@
 				C7254D421D9A95FB00DC94FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C7254D431D9A95FB00DC94FB /* Build configuration list for PBXNativeTarget "CommunicationReFactoryTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +443,7 @@
 				C7254D451D9A95FB00DC94FB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
