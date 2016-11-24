@@ -12,6 +12,10 @@
 
 
 /**
+ Property to store the downloaded data in NSData format
+ */
+@property (strong, nonatomic) NSData *downloadedData;
+/**
  Downloading and giving back the raw data result from the url. 
 
  @param url the source url

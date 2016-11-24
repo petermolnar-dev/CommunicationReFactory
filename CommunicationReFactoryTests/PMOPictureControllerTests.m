@@ -35,12 +35,10 @@
  Internet connection required to pass this test!
  */
 - (void)testPictureAsyncDownload {
-    XCTestExpectation *expectation = [self expectationForNotification:PMODownloadWasSuccessful
-                                                               object: nil
-                                                              handler:^BOOL(NSNotification * _Nonnull notification) {
-                                                                  [expectation fulfill];
-                                                                  return true;
-                                                              }];
+    XCTestExpectation *expectation = [self keyValueObservingExpectationForObject:self.pictureController keyPath:@"image" handler:^BOOL(id  _Nonnull observedObject, NSDictionary * _Nonnull change) {
+        [expectation fulfill];
+        return true;
+    }];
     
     [self.pictureController downloadImage];
     [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {

@@ -30,12 +30,19 @@
 
 }
 
+#pragma mark - Accessors
+- (void)setDownloadedData:(NSData *)downloadedData {
+    if (!_downloadedData) {
+        _downloadedData = [[NSData alloc] init];
+    }
+    _downloadedData = downloadedData;
+}
+
 #pragma mark - Notifications
 - (void)notifyObserverWithProcessedData:(NSData *)data {
-    NSDictionary *userInfo = @{@"downloadedData" : data };
-    [[NSNotificationCenter defaultCenter] postNotificationName:PMODownloadWasSuccessful
-                                                        object:self
-                                                      userInfo:userInfo];
+    [self willChangeValueForKey:@"downloadedData"];
+    self.downloadedData = data;
+    [self didChangeValueForKey:@"downloadedData"];
 }
 
 
