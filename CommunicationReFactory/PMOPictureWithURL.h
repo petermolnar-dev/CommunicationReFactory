@@ -34,4 +34,11 @@
  */
 - (nonnull instancetype)initWithPictureURL:(nonnull NSURL *)url NS_DESIGNATED_INITIALIZER;
 
+/**
+ Removing the default initializer
+
+ @return nil
+ */
+- (nullable instancetype)init NS_UNAVAILABLE;
+
 @end

@@ -11,7 +11,6 @@
 
 @interface PMOPictureController : NSObject
 
-
 /**
  The designated initializer, the picture's url is mandatory to pass.
 
@@ -33,5 +32,13 @@
  @return an instance of UIImage.
  */
 - (nullable UIImage *)image;
+
+
+/**
+ Removinf the default initalizer
+
+ @return nil
+ */
+- (nullable instancetype)init NS_UNAVAILABLE;
 
 @end

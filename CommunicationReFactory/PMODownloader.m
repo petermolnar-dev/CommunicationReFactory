@@ -13,7 +13,7 @@
 
 #pragma mark - Public API
 - (void)downloadDataFromURL:(NSURL *)url {
-
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSURLSession *session = [NSURLSession sharedSession];
     
@@ -27,29 +27,34 @@
                                       }
                                   }];
     [task resume];
-
+    
 }
 
+//2
 #pragma mark - Accessors
 - (void)setDownloadedData:(NSData *)downloadedData {
+    [self willChangeValueForKey:@"downloadedData"];
     if (!_downloadedData) {
         _downloadedData = [[NSData alloc] init];
     }
     _downloadedData = downloadedData;
-}
-
-#pragma mark - Notifications
-- (void)notifyObserverWithProcessedData:(NSData *)data {
-    [self willChangeValueForKey:@"downloadedData"];
-    self.downloadedData = data;
     [self didChangeValueForKey:@"downloadedData"];
 }
 
 
-- (void)notifyObserverDownloadFailure {
+#pragma mark - Notifications
+- (void)notifyObserverWithProcessedData:(NSData *)data {
+    self.downloadedData = data;
+}
 
+
+- (void)notifyObserverDownloadFailure {
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:PMODownloadFailed
                                                         object:self
                                                       userInfo:nil];
 }
+
+
+
 @end

@@ -25,23 +25,6 @@
     [super tearDown];
 }
 
-//Save the diagnostic state
-#pragma clang diagnostic push
-
-//Ignore -Wnonnull warnings
-#pragma clang diagnostic ignored "-Wnonnull"
-- (void)testIfNilPassed {
-    
-    XCTAssertThrows([[PMOPictureWithURL alloc] initWithPictureURL:nil]);
-}
-//Restore the diagnostic state
-#pragma clang diagnostic pop
-
-- (void)testDefaultInitializer {
-    
-    XCTAssertThrows([[PMOPictureWithURL alloc] init]);
-    
-}
 
 - (void)testDesignatedInitializer {
     PMOPictureWithURL *pictureWithURL = [[PMOPictureWithURL alloc] initWithPictureURL:PICTURE_URL];
