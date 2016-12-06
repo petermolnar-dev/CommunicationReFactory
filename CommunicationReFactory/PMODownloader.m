@@ -23,14 +23,15 @@
                                       if (error) {
                                           [self notifyObserverDownloadFailure];
                                       } else {
-                                          [self notifyObserverWithProcessedData:data];
+//2
+                                          self.downloadedData = data;
                                       }
                                   }];
     [task resume];
     
 }
 
-//2
+//3
 #pragma mark - Accessors
 - (void)setDownloadedData:(NSData *)downloadedData {
     [self willChangeValueForKey:@"downloadedData"];
@@ -43,9 +44,7 @@
 
 
 #pragma mark - Notifications
-- (void)notifyObserverWithProcessedData:(NSData *)data {
-    self.downloadedData = data;
-}
+
 
 
 - (void)notifyObserverDownloadFailure {
