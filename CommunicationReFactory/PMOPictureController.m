@@ -11,12 +11,12 @@
 #import "PMODownloader.h"
 #import "PMOPictureWithURL.h"
 #import "PMODownloadNotifications.h"
-
+//1
 static void *DownloadedDataObservation = &DownloadedDataObservation;
 
 @interface PMOPictureController()
 
-//1
+//2
 /**
  Our private data class, storing and hiding the information.
  */
@@ -31,6 +31,7 @@ static void *DownloadedDataObservation = &DownloadedDataObservation;
 
 @implementation PMOPictureController
 
+//3
 #pragma mark - Initializers
 - (instancetype)initWithPictureURL:(NSURL *)url {
     
@@ -47,7 +48,7 @@ static void *DownloadedDataObservation = &DownloadedDataObservation;
 
 #pragma mark - Public API
 - (void)downloadImage {
-    //2
+    //4
     [self.downloader downloadDataFromURL:self.pictureWithUrl.imageURL];
 }
 
@@ -72,7 +73,7 @@ static void *DownloadedDataObservation = &DownloadedDataObservation;
     
 }
 
-//4
+//5
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
     if (context == DownloadedDataObservation) {
         [self willChangeValueForKey:@"image"];
@@ -83,7 +84,7 @@ static void *DownloadedDataObservation = &DownloadedDataObservation;
     }
 }
 
-//5
+//6
 - (void)addObserverForDownloadTaskWithDownloader {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didImageDownloadFailed)
@@ -93,13 +94,14 @@ static void *DownloadedDataObservation = &DownloadedDataObservation;
 
 
 - (void)removeObserverForDownloadTask {
-    //6
+//7
     [self.downloader removeObserver:self forKeyPath:@"downloadedData" context:DownloadedDataObservation];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
 #pragma mark - Dealloc
+//8
 - (void)dealloc {
     [self removeObserverForDownloadTask];
     self.downloader = nil;
