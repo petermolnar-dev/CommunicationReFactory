@@ -52,6 +52,7 @@
  Testing the download failure wiht a nonexisting domain
  */
 - (void)testPictureAsyncDownloadFailed {
+
     
     self.pictureController = [[PMOPictureController alloc] initWithPictureURL:[NSURL URLWithString:@"https://ThereIsNoSuCHDomainName/MssedUPName.png"]];
     
