@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "PMODataHolder.h"
 
-@interface PMOPictureController : NSObject
+@interface PMOPictureController : NSObject <PMODataHolder>
 
 /**
  The designated initializer, the picture's url is mandatory to pass.

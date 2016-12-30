@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PMODownloaderFromURL.h"
 
-@interface PMODownloader : NSObject
+@interface PMODownloader : NSObject <PMODownloaderFromURL>
 
 //1
 /**

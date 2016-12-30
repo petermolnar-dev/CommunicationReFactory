@@ -11,35 +11,31 @@
 #import "PMODownloader.h"
 #import "PMOPictureWithURL.h"
 #import "PMODownloadNotifications.h"
-//1
-static void *DownloadedDataObservation = &DownloadedDataObservation;
+
 
 @interface PMOPictureController()
 
-//2
 /**
  Our private data class, storing and hiding the information.
  */
 @property (strong, nonatomic, nullable) PMOPictureWithURL *pictureWithUrl;
 
-/**
- The downloader, which downloads the data. We need to keep it as a property as long as
- we want to use the Key-Value Observation
- */
-@property (strong, nonatomic, nullable) PMODownloader *downloader;
+
 @end
 
 @implementation PMOPictureController
 
-//3
+@synthesize delegate = _delegate;
+
 #pragma mark - Initializers
 - (instancetype)initWithPictureURL:(NSURL *)url {
     
     self = [super init];
     if (self) {
         _pictureWithUrl = [[PMOPictureWithURL alloc] initWithPictureURL:url];
-        _downloader = [[PMODownloader alloc] init];
-        [self addObserverForKeyValueObservationDownloader:_downloader];
+        PMODownloader *delegate = [[PMODownloader alloc] init];
+        delegate.receiver = self;
+        _delegate = delegate;
         [self addObserverForDownloadTaskWithDownloader];
     }
     return self;
@@ -48,8 +44,17 @@ static void *DownloadedDataObservation = &DownloadedDataObservation;
 
 #pragma mark - Public API
 - (void)downloadImage {
-    //4
-    [self.downloader downloadDataFromURL:self.pictureWithUrl.imageURL];
+    [self.delegate downloadDataFromURL:self.pictureWithUrl.imageURL];
+}
+
+
+- (void)didDownloadedData:(NSData *)data {
+    if (data) {
+        [self willChangeValueForKey:@"image"];
+        self.pictureWithUrl.image = [UIImage imageWithData:data];
+        [self removeObserverForDownloadTask];
+        [self didChangeValueForKey:@"image"];
+    }
 }
 
 #pragma mark - Accessors
@@ -66,25 +71,6 @@ static void *DownloadedDataObservation = &DownloadedDataObservation;
 
 
 #pragma mark - Notification helpers
-- (void)addObserverForKeyValueObservationDownloader:(PMODownloader *)downloader {
-    [downloader addObserver:self forKeyPath:@"downloadedData"
-                    options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew
-                    context:DownloadedDataObservation];
-    
-}
-
-//5
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context {
-    if (context == DownloadedDataObservation) {
-        [self willChangeValueForKey:@"image"];
-        self.pictureWithUrl.image = [UIImage imageWithData:self.downloader.downloadedData];
-        [self didChangeValueForKey:@"image"];
-    } else {
-        [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-    }
-}
-
-//6
 - (void)addObserverForDownloadTaskWithDownloader {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(didImageDownloadFailed)
@@ -94,17 +80,13 @@ static void *DownloadedDataObservation = &DownloadedDataObservation;
 
 
 - (void)removeObserverForDownloadTask {
-//7
-    [self.downloader removeObserver:self forKeyPath:@"downloadedData" context:DownloadedDataObservation];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 
 #pragma mark - Dealloc
-//8
 - (void)dealloc {
     [self removeObserverForDownloadTask];
-    self.downloader = nil;
 }
 
 

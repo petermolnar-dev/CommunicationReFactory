@@ -11,6 +11,8 @@
 
 @implementation PMODownloader
 
+@synthesize receiver = _receiver;
+
 #pragma mark - Public API
 - (void)downloadDataFromURL:(NSURL *)url {
     
@@ -23,30 +25,22 @@
                                       if (error) {
                                           [self notifyObserverDownloadFailure];
                                       } else {
-//2
-                                          self.downloadedData = data;
+
+                                          [self handOverDownloadedDataToReceiver:data];
                                       }
                                   }];
     [task resume];
     
 }
 
-//3
-#pragma mark - Accessors
-- (void)setDownloadedData:(NSData *)downloadedData {
-    [self willChangeValueForKey:@"downloadedData"];
-    if (!_downloadedData) {
-        _downloadedData = [[NSData alloc] init];
-    }
-    _downloadedData = downloadedData;
-    [self didChangeValueForKey:@"downloadedData"];
+
+#pragma mark - PMODownloaderFromURL protocol implementation
+- (void)handOverDownloadedDataToReceiver:(NSData *)data {
+    [self.receiver didDownloadedData:data];
 }
 
 
 #pragma mark - Notifications
-
-
-
 - (void)notifyObserverDownloadFailure {
     
     [[NSNotificationCenter defaultCenter] postNotificationName:PMODownloadFailed

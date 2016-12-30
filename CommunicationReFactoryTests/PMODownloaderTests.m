@@ -26,23 +26,6 @@
     [super tearDown];
 }
 
-/**
- Testing download OK.
- */
-- (void)testDownload {
-    XCTestExpectation *expectation = [self keyValueObservingExpectationForObject:self.downloader keyPath:@"downloadedData" handler:^BOOL(id  _Nonnull observedObject, NSDictionary * _Nonnull change) {
-        [expectation fulfill];
-        return true;
-    }];
-    
-    [self.downloader downloadDataFromURL:[NSURL URLWithString:@"https://upload.wikimedia.org/wikipedia/en/4/45/One_black_Pixel.png"]];
-    
-    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
-        if (error) {
-            NSLog(@"Timeout Error: %@", error);
-        }
-    }];
-}
 
 /**
  Testing the download failure wiht a nonexisting domain
