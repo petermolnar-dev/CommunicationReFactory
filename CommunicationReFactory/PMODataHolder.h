@@ -7,6 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PMODownloaderFromURL.h"
+
+/**
+ Forward declaration of the used and referenced protocol
+ */
+@protocol PMODownloaderFromURL;
+
 
 @protocol PMODataHolder <NSObject>
 
@@ -20,6 +27,6 @@
 
  @param data The downloaded data is raw NSData format.
  */
-- (void)didDownloadedData:(NSData *) data;
+- (void)didDownloadedData:(NSData * _Nullable) data;
 
 @end

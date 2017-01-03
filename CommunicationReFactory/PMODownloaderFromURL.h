@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "PMODataHolder.h"
 
+
+/**
+ Forward declaration of the used and referenced protocol
+ */
+@protocol PMODataHolder;
+
 @protocol PMODownloaderFromURL <NSObject>
 
 /**
