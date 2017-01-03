@@ -30,12 +30,4 @@
  */
 - (void)downloadDataFromURL:(nonnull NSURL *)url;
 
-
-/**
- the callback wrapper/ complition handler. In this method the downloaded raw NSData needs to be handed over the receiver.
-
- @param data The downloaded raw data in NSData format.
- */
-- (void)handOverDownloadedDataToReceiver:(nullable NSData *)data;
-
 @end

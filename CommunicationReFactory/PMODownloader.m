@@ -13,7 +13,7 @@
 
 @synthesize receiver = _receiver;
 
-#pragma mark - Public API
+#pragma mark - Public API / Protocol implementation
 - (void)downloadDataFromURL:(NSURL *)url {
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -26,17 +26,11 @@
                                           [self notifyObserverDownloadFailure];
                                       } else {
 
-                                          [self handOverDownloadedDataToReceiver:data];
+                                          [self.receiver didDownloadedData:data];
                                       }
                                   }];
     [task resume];
     
-}
-
-
-#pragma mark - PMODownloaderFromURL protocol implementation
-- (void)handOverDownloadedDataToReceiver:(NSData *)data {
-    [self.receiver didDownloadedData:data];
 }
 
 
