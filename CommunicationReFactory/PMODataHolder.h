@@ -27,6 +27,6 @@
 
  @param data The downloaded data is raw NSData format.
  */
-- (void)didDownloadedData:(NSData * _Nullable) data;
+- (void)didDownloadedData:(nullable NSData *) data;
 
 @end
