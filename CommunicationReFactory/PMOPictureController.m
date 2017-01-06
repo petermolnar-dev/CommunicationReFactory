@@ -25,6 +25,7 @@
 
 @implementation PMOPictureController
 
+// 1
 @synthesize delegate = _delegate;
 
 #pragma mark - Initializers
@@ -42,12 +43,14 @@
 }
 
 
+// 2
 #pragma mark - Public API
 - (void)downloadImage {
     [self.delegate downloadDataFromURL:self.pictureWithUrl.imageURL];
 }
 
-
+//3
+#pragma mark - Implementation of the PMODataHolder protocol
 - (void)didDownloadedData:(NSData *)data {
     if (data) {
         [self willChangeValueForKey:@"image"];
@@ -69,7 +72,6 @@
 }
 
 
-
 #pragma mark - Notification helpers
 - (void)addObserverForDownloadTaskWithDownloader {
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -88,7 +90,5 @@
 - (void)dealloc {
     [self removeObserverForDownloadTask];
 }
-
-
 
 @end

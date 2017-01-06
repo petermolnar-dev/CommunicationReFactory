@@ -11,8 +11,10 @@
 
 @implementation PMODownloader
 
+//1
 @synthesize receiver = _receiver;
 
+//2
 #pragma mark - Public API / Protocol implementation
 - (void)downloadDataFromURL:(NSURL *)url {
     
