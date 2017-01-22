@@ -7,16 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-//1
-#import "PMODownloaderFromURL.h"
 
-//2
-@interface PMODownloader : NSObject <PMODownloaderFromURL>
+
+@interface PMODownloader : NSObject
+
 
 /**
- Property to store the downloaded data in NSData format
+ Downloading and giving back the raw data result from the url.
+ @param url the source url
  */
-@property (strong, nonatomic, nullable) NSData *downloadedData;
-
+- (void)downloadDataFromURL:(nonnull NSURL *)url completionHander:(void(^_Nonnull)(NSData * _Nullable downloadedData))callback;
 
 @end

@@ -11,12 +11,9 @@
 
 @implementation PMODownloader
 
-//1
-@synthesize receiver = _receiver;
 
-//2
 #pragma mark - Public API / Protocol implementation
-- (void)downloadDataFromURL:(NSURL *)url {
+- (void)downloadDataFromURL:(nonnull NSURL *)url completionHander:(void(^_Nonnull)(NSData * _Nullable downloadedData))callback {
     
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     NSURLSession *session = [NSURLSession sharedSession];
@@ -27,8 +24,7 @@
                                       if (error) {
                                           [self notifyObserverDownloadFailure];
                                       } else {
-
-                                          [self.receiver didDownloadedData:data];
+                                          callback(data);
                                       }
                                   }];
     [task resume];

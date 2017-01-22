@@ -33,8 +33,6 @@
 
 /* Begin PBXFileReference section */
 		C70C99D01DE4B28500DB466B /* PMODownloaderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMODownloaderTests.m; sourceTree = "<group>"; };
-		C70E12631E01B10A0003C83E /* PMODataHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMODataHolder.h; sourceTree = "<group>"; };
-		C70E12641E01B18C0003C83E /* PMODownloaderFromURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMODownloaderFromURL.h; sourceTree = "<group>"; };
 		C7254D1E1D9A95FB00DC94FB /* CommunicationReFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CommunicationReFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7254D221D9A95FB00DC94FB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C7254D241D9A95FB00DC94FB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -97,8 +95,6 @@
 		C7254D201D9A95FB00DC94FB /* CommunicationReFactory */ = {
 			isa = PBXGroup;
 			children = (
-				C70E12631E01B10A0003C83E /* PMODataHolder.h */,
-				C70E12641E01B18C0003C83E /* PMODownloaderFromURL.h */,
 				C7254D241D9A95FB00DC94FB /* AppDelegate.h */,
 				C7D2167C1DCB14FC00D794CB /* PMOPictureController.h */,
 				C7D2167D1DCB14FC00D794CB /* PMOPictureController.m */,

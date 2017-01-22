@@ -12,6 +12,8 @@
 #import "PMOPictureWithURL.h"
 #import "PMODownloadNotifications.h"
 
+typedef void (^DownloadCallBack)(NSData *);
+
 
 @interface PMOPictureController()
 
@@ -25,8 +27,7 @@
 
 @implementation PMOPictureController
 
-// 1
-@synthesize delegate = _delegate;
+
 
 #pragma mark - Initializers
 - (instancetype)initWithPictureURL:(NSURL *)url {
@@ -34,30 +35,26 @@
     self = [super init];
     if (self) {
         _pictureWithUrl = [[PMOPictureWithURL alloc] initWithPictureURL:url];
-        PMODownloader *delegate = [[PMODownloader alloc] init];
-        delegate.receiver = self;
-        _delegate = delegate;
         [self addObserverForDownloadTaskWithDownloader];
     }
     return self;
 }
 
 
-// 2
 #pragma mark - Public API
 - (void)downloadImage {
-    [self.delegate downloadDataFromURL:self.pictureWithUrl.imageURL];
-}
-
-//3
-#pragma mark - Implementation of the PMODataHolder protocol
-- (void)didDownloadedData:(NSData *)data {
-    if (data) {
-        [self willChangeValueForKey:@"image"];
-        self.pictureWithUrl.image = [UIImage imageWithData:data];
-        [self removeObserverForDownloadTask];
-        [self didChangeValueForKey:@"image"];
-    }
+    PMODownloader *downloader = [[PMODownloader alloc] init];
+    __weak __typeof__(self) weakSelf = self;
+    
+    DownloadCallBack downloadCallBack = ^void(NSData *downloadedData) {
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [weakSelf willChangeValueForKey:@"image"];
+            weakSelf.pictureWithUrl.image = [UIImage imageWithData:downloadedData];
+            [weakSelf didChangeValueForKey:@"image"];
+        }];
+    };
+    
+    [downloader downloadDataFromURL:self.pictureWithUrl.imageURL completionHander:downloadCallBack];
 }
 
 #pragma mark - Accessors
