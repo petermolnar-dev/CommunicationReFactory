@@ -41,7 +41,7 @@
                                                                   return true;
                                                               }];
     
-    [self.downloader downloadDataFromURL:[NSURL URLWithString:@"https://ThereIsNoSuCHDomainName/MssedUPName.png"] completionHander:^(NSData *data){}];
+    [self.downloader downloadDataFromURL:[NSURL URLWithString:@"https://ThereIsNoSuCHDomainName/MssedUPName.png"] completionHander:^(NSData *data){ NSLog(@"Callback"); }];
     [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
         if (error) {
             NSLog(@"Timeout Error: %@", error);

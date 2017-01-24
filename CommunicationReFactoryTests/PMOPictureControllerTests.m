@@ -19,7 +19,7 @@
 - (void)setUp {
     [super setUp];
 //    Set up the controller with a valid image URL.
-    self.pictureController = [[PMOPictureController alloc] initWithPictureURL:[NSURL URLWithString:@"https://upload.wikimedia.org/wikipedia/en/4/45/One_black_Pixel.png"]];
+    self.pictureController = [[PMOPictureController alloc] initWithPictureURL:[NSURL URLWithString:@"https://petermolnar.hu/wp-content/uploads/2016/07/cropped-iphone-lying-on-macbook-keyboard-picjumbo-com.jpg"]];
 }
 
 - (void)tearDown {

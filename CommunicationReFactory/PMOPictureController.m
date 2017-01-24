@@ -48,6 +48,7 @@ typedef void (^DownloadCallBack)(NSData *);
     
     DownloadCallBack downloadCallBack = ^void(NSData *downloadedData) {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            NSLog(@"Picture downloaded");
             [weakSelf willChangeValueForKey:@"image"];
             weakSelf.pictureWithUrl.image = [UIImage imageWithData:downloadedData];
             [weakSelf didChangeValueForKey:@"image"];
