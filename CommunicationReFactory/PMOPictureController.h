@@ -35,7 +35,7 @@
 
 
 /**
- Removinf the default initalizer
+ Removing the default initalizer
 
  @return nil
  */

@@ -24,6 +24,7 @@
                                       if (error) {
                                           [self notifyObserverDownloadFailure];
                                       } else {
+//2
                                           callback(data);
                                       }
                                   }];

@@ -12,6 +12,7 @@
 #import "PMOPictureWithURL.h"
 #import "PMODownloadNotifications.h"
 
+//1
 typedef void (^DownloadCallBack)(NSData *);
 
 
@@ -21,7 +22,6 @@ typedef void (^DownloadCallBack)(NSData *);
  Our private data class, storing and hiding the information.
  */
 @property (strong, nonatomic, nullable) PMOPictureWithURL *pictureWithUrl;
-
 
 @end
 
@@ -43,9 +43,10 @@ typedef void (^DownloadCallBack)(NSData *);
 
 #pragma mark - Public API
 - (void)downloadImage {
+//2
     PMODownloader *downloader = [[PMODownloader alloc] init];
     __weak __typeof__(self) weakSelf = self;
-    
+
     DownloadCallBack downloadCallBack = ^void(NSData *downloadedData) {
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             NSLog(@"Picture downloaded");

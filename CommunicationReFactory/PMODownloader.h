@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface PMODownloader : NSObject
 
-
+//1
 /**
- Downloading and giving back the raw data result from the url.
- @param url the source url
+ The download method, which triggers the download from the parameter url, and executes the passed block in case of the succesful download.
+ 
+ @param url the URL of the downloadable resource
+ @param callback the callback block, which will be executed with succesfull download
  */
 - (void)downloadDataFromURL:(nonnull NSURL *)url completionHander:(void(^_Nonnull)(NSData * _Nullable downloadedData))callback;
 
